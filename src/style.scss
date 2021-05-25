@@ -2,6 +2,16 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   margin: 0;
   color: #333;
+  &.overlay-is-open {
+    .overlay, .overlay--visible {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);  
+    }
+    .main-ui, .blurred {
+      filter: blur(4px);
+    }
+  }
 }
   
 .main-ui {
@@ -69,16 +79,6 @@ body {
   max-width: 700px;
 }
   
-body.overlay-is-open .overlay, .overlay--visible {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
-}
-  
-body.overlay-is-open .main-ui, .blurred {
-  filter: blur(4px);
-}
-  
 @keyframes showError {
   50% {
     color: red;
@@ -105,7 +105,7 @@ body.overlay-is-open .main-ui, .blurred {
   font-size: 1.5rem;
   margin-top: 0;
 }
-  
+
 .reset-button {
   font-size: 1.2rem;
   background-color: #004094;
@@ -116,12 +116,10 @@ body.overlay-is-open .main-ui, .blurred {
   display: inline-block;
   outline: none;
   cursor: pointer;
-}
-  
-.reset-button:hover {
-  background-color: #00367e;
-}
-  
-.reset-button:focus {
-  background-color: #00275a;
+  &:hover {
+    background-color: #00367e;
+  }
+  &:focus {
+    background-color: #00275a;
+  }
 }
